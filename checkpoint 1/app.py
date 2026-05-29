@@ -4,6 +4,7 @@ from tensorflow import keras
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 import numpy as np
 from PIL import Image
+from pathlib import Path
 
 # Config trang
 st.set_page_config(
@@ -24,13 +25,18 @@ def load_model(model_path):
     return model
 
 # Thử load format mới (.keras) trước, fallback về .h5
+# Use the script directory so model paths work regardless of current working directory
+BASE_DIR = Path(__file__).resolve().parent
+
 try:
-    model = load_model("d&c_classification_model_best.keras")  # model tốt nhất từ ModelCheckpoint
-    st.sidebar.success("Loaded: d&c_classification_model_best.keras")
+    model_path = BASE_DIR / "d&c_classification_model_best.keras"
+    model = load_model(str(model_path))  # model tốt nhất từ ModelCheckpoint
+    st.sidebar.success(f"Loaded: {model_path.name}")
 except Exception:
     try:
-        model = load_model("d&c_classification_model.keras")
-        st.sidebar.success("Loaded: d&c_classification_model.keras")
+        model_path = BASE_DIR / "d&c_classification_model.keras"
+        model = load_model(str(model_path))
+        st.sidebar.success(f"Loaded: {model_path.name}")
     except Exception as e:
         st.error(f"Không tìm thấy model: {e}")
         st.stop()
