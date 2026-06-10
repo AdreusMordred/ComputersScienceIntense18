@@ -1,0 +1,3 @@
+﻿Câu 1: Không, mô hình mới không tốt hơn. Validation accuracy cao nhất của mô hình mới (0,8725) thấp hơn mô hình cũ (0,8796) và validation loss cũng cao hơn.
+
+Câu 2: Dropout 0,5 làm giảm nhẹ train accuracy, khiến mô hình học chậm hơn ở đầu, nhưng không giảm được overfitting vì validation loss vẫn tăng về cuối.
