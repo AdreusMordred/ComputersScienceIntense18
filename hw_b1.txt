@@ -1,0 +1,14 @@
+﻿1.
+Không có một con số cố định cho mọi trường hợp.
+Với Gaussian: thường chỉ cần 0–1 hidden layer, khoảng 1–3 neurons là đủ.
+Với dữ liệu đơn giản hơn như XOR: khoảng 1 hidden layer, 2–4 neurons.
+Với dữ liệu phức tạp hơn như spiral: cần 2 hidden layers, khoảng 6–10 neurons mỗi layer.
+
+2.
+Không nhất thiết, thêm hidden layers chỉ giúp mô hình mạnh hơn về khả năng biểu diễn, nhưng cũng làm việc học khó hơn. Nếu bài toán đơn giản thì không cần nhiều layer, còn bài phức tạp thì có thể cần thêm layer. Tuy nhiên, quá nhiều layer có thể khiến mô hình khó tối ưu và dễ bị overfitting.
+
+3.
+- Mô hình linh hoạt hơn, fit dữ liệu tốt hơn
+- Với Gaussian: dễ bị overfit rất nhanh (vẽ ranh giới quá phức tạp là sai)
+- Với dữ liệu phức tạp: giúp mô hình bắt được ranh giới cong, phi tuyến
+=> tăng neurons → tăng khả năng học, nhưng quá nhiều → học “thuộc lòng” dữ liệu, giảm khả năng tổng quát
